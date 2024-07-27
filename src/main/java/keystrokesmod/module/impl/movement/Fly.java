@@ -55,7 +55,7 @@ public class Fly extends Module {
 
     public Fly() {
         super("Fly", category.movement);
-        this.registerSetting(mode = new ModeSetting("Mode", new String[]{"Vanilla", "Fast", "Fast 2", "AirWalk", "Old GrimAC", "BlocksMC", "GrimACBoat", "MMC", "Matrix A", "Matrix B"}, 0));
+        this.registerSetting(mode = new ModeSetting("Mode", new String[]{"Vanilla", "Fast", "Fast 2", "AirWalk", "Old GrimAC", "BlocksMC", "GrimACBoat", "MMC", "Matrix A", "Matrix B", "Funny"}, 0));
         final ModeOnly canChangeSpeed = new ModeOnly(mode, 0, 1, 2, 6, 9);
         final ModeOnly balanceMode = new ModeOnly(mode, 4);
         this.registerSetting(horizontalSpeed = new SliderSetting("Horizontal speed", 2.0, 0.0, 9.0, 0.1, canChangeSpeed));
@@ -300,6 +300,9 @@ public class Fly extends Module {
                     mc.thePlayer.motionZ *= 1.15 - Math.random() / 1000;
                 }
                 break;
+            case 10:
+                mc.thePlayer.capabilities.isFlying = true;
+                mc.thePlayer.capabilities.setFlySpeed(6.0F);
         }
     }
 
