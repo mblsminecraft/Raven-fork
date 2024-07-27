@@ -303,6 +303,7 @@ public class Fly extends Module {
             case 10:
                 mc.thePlayer.capabilities.isFlying = true;
                 mc.thePlayer.capabilities.setFlySpeed(6.0F);
+                break;
         }
     }
 
